@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class ColliderClick : MonoBehaviour
 {
-
+public string nextScene;
     public Text txt;
     //TIMER
     private bool isLooked = false;
@@ -30,7 +32,6 @@ public class ColliderClick : MonoBehaviour
             if (lookTimer > timerDuration)
             {
                 lookTimer = 0f;
-                Debug.Log("Object timer click");
                 OnPointerClick();
             }
         }
@@ -47,9 +48,8 @@ public class ColliderClick : MonoBehaviour
 
     public void OnPointerClick()
     {
-         String str = "Click " + gameObject.name;
-         Debug.Log(str);
-         txt.text = str;
+ 
+SceneManager.LoadScene(nextScene);
     }
 
 }
